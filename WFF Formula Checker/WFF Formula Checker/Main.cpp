@@ -1,5 +1,4 @@
-// Escrever um algoritmo tal que, dado uma sequência de caracteres, determine se é uma fórmula lógica proposiocional.
-
+// Write an algorithm that, given a sequence of characters, determine whether it is a propositional logic formula
 
 #include <iostream>
 #include <string>
@@ -44,8 +43,6 @@ int main()
 
 void recursive_loop(std::string formula)
 {
-	// Debug
-	//std::cout << index << ", " << formula[index] << ", " << invalid_logic << ", " << index+1 << ", " << formula.length() <<std::endl;
 	if (index <= formula.length())
 	{
 		// Checks if letter

@@ -11,9 +11,11 @@ bool is_close_brackets(char);
 bool is_not(char);
 
 char letters[] = { 'p', 'q', 'r', 's' };
+//	(>)Inplication / (^)Conjunction / (=)Equivalence / (v)Disjunction 
 char symbols[] = { '>', '^', '=', 'v' };
 char open_brackets = '(';
 char close_brackets = ')';
+// Negation
 char NOT = '~';
 
 // If invalid_logic is greater than 0, then it's a invalid propositional logic
@@ -28,8 +30,12 @@ int main()
 	// Enter the formula to be checked
 	std::string formula = "(p>~q)>~(p=q)";
 
+	// This recursion reads the string in sequence, checking the current character and if the next character is valid, based on WFF rules.
+	// At the end of the string, it also checks if the last character is valid to be at the end (e.g it can't end with a open brackets or a symbol)
+	// It adds +1 to the invalid_logic variable if something went wrong, meaning it's a invalid propositional logic
 	recursive_loop(formula);
 
+	// The last verification layer. Checks if the amound of opened and closed brackets is the same.
 	if (!invalid_logic && open_brackets_count == close_brackets_count)
 		std::cout << "This is a valid propositional logic! \n";
 	else
